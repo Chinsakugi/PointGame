@@ -9,7 +9,7 @@ public class userPanel {
     }
 
     public static void endGameInfo() {
-        System.out.println("游戏结束，感谢您的游玩");
+        System.out.println("游戏结束，感谢您的游玩！");
     }
 
     public static void menu() {

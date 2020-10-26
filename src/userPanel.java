@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class userPanel {
     public static void startGameInfo() {
-        System.out.println("欢迎来到二十一点游戏");
+        System.out.println("欢迎来到二十一点游戏！");
         System.out.println("请选择：");
         System.out.println("1.开始游戏     2.结束游戏");
     }

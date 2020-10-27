@@ -121,7 +121,7 @@ public class userPanel {
                 endGameInfo();
                 break;
             } else
-                System.out.println("输入无效，请重新选择！");
+                System.out.println("输入无效，请重新选择。");
         }
     }
 }

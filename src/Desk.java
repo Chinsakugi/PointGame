@@ -18,6 +18,10 @@ public class Desk {   //牌桌类
         return odds;
     }
 
+    public void setOdds(){
+        this.odds = 2.0;
+    }
+
     public ArrayList<Card> getDeck() {
         return deck;
     }
@@ -77,6 +81,7 @@ public class Desk {   //牌桌类
 
     public void doubleOdds(){  //加倍赔率
         this.odds *= 2.0;
+        player.setDoubleOdds(true);
     }
 
     public boolean isBiggerThan21(Object obj){  //判断是否达到21点

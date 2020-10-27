@@ -111,12 +111,17 @@ public class userPanel {
                     desk.getPlayer().setBalance(desk.getPlayer().getBalance() + desk.getOdds() * desk.getPlayer().getPokerChips());
                 } else if (condition == 2) {
                     System.out.print("您输了！");
-                    desk.getPlayer().setBalance(desk.getPlayer().getBalance() - desk.getPlayer().getPokerChips());
+                    if(desk.getPlayer().isDoubleOdds())
+                        desk.getPlayer().setBalance(desk.getPlayer().getBalance() - 2.0*desk.getPlayer().getPokerChips());
+                    else
+                        desk.getPlayer().setBalance(desk.getPlayer().getBalance() - desk.getPlayer().getPokerChips());
                 } else
                     System.out.print("平局");
                 System.out.println("  您的余额为：" + desk.getPlayer().getBalance());
                 desk.deleteHand(player);   //清空手牌
                 desk.deleteHand(dealer);
+                desk.setOdds();             //初始化赔率
+                desk.getPlayer().setDoubleOdds(false);
             } else if (input == 2) {
                 endGameInfo();
                 break;

@@ -208,7 +208,7 @@ public class userPanel {
                     else {
                         boolean i = desk.getPlayer().getHand().isBlackJack();
                         boolean j = desk.getDealer().getHand().isBlackJack();
-                        if (i && j)
+                        if (i == j)
                             condition = 3;
                         else
                             condition = i ? 1 : 2;

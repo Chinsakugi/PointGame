@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Desk {
-    private double odds;
-    private ArrayList<Card> deck;
+    private double odds;   //赔率
+    private ArrayList<Card> deck;  //牌堆
     private Player player;
     private Dealer dealer;
 
@@ -35,7 +35,7 @@ public class Desk {
         return this.dealer;
     }
 
-    public void initDeck() {
+    public void initDeck() {    //初始化一副牌
         ArrayList<Card> cards = new ArrayList();
         pokerColor[] colors = pokerColor.values();
 
@@ -59,13 +59,13 @@ public class Desk {
         this.deck = cards;
     }
 
-    public static void swap(ArrayList<Card> cards, int i, int j) {
+    public static void swap(ArrayList<Card> cards, int i, int j) {  //交换函数
         Card temp = (Card)cards.get(i);
         cards.set(i, (Card)cards.get(j));
         cards.set(j, temp);
     }
 
-    public void shuffle() {
+    public void shuffle() {   //初始化一副牌并洗牌
         this.initDeck();
         Random rand = new Random();
 
@@ -76,7 +76,7 @@ public class Desk {
 
     }
 
-    public void licensing(Object joiner) {
+    public void licensing(Object joiner) {   //发牌
         Card card = (Card)this.getDeck().get(0);
         if (joiner.getClass() == Player.class) {
             this.player.addCard(card);
@@ -87,16 +87,16 @@ public class Desk {
         this.deck.remove(0);
     }
 
-    public void doubleOdds() {
+    public void doubleOdds() {   //双倍赔率
         this.odds *= 2.0D;
         this.player.setDoubleOdds(true);
     }
 
-    public void resetOdds() {
+    public void resetOdds() {    //重置赔率
         this.odds = 2.0D;
     }
 
-    public boolean isBiggerThan21(Object obj) {
+    public boolean isBiggerThan21(Object obj) {    //判断手牌点数是否超过21点
         if (obj.getClass() == Player.class) {
             return this.player.getHand().getPoint() > 21;
         } else {
@@ -104,7 +104,7 @@ public class Desk {
         }
     }
 
-    public void deleteHand(Object obj) {
+    public void deleteHand(Object obj) {           //重置手牌
         if (obj.getClass() == Player.class) {
             this.player.setHand(new Hand(new ArrayList()));
         } else {

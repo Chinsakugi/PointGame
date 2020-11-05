@@ -7,7 +7,7 @@ import java.util.Iterator;
 import javax.swing.JTextArea;
 
 public class Dealer {
-    private Hand hand;
+    private Hand hand;  //手牌
     JTextArea textArea;
 
     public Dealer(Hand hand, JTextArea textArea) {
@@ -27,7 +27,7 @@ public class Dealer {
         this.hand.cardList.add(card);
     }
 
-    public void printHand() {
+    public void printHand() {   //打印手牌
         this.textArea.append("庄家现在的手牌为：\n");
         this.textArea.append("[ ");
         Iterator var2 = this.hand.getCardList().iterator();

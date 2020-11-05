@@ -21,7 +21,7 @@ public class Hand {
         this.cardList = cardList;
     }
 
-    public int getPoint() {
+    public int getPoint() {       //获取手牌点数
         int point = 0;
         int num_A = 0;
         Iterator var4 = this.cardList.iterator();
@@ -69,7 +69,7 @@ public class Hand {
         }
     }
 
-    public boolean isBlackJack() {
+    public boolean isBlackJack() {   //判断手牌是否为黑杰克
         return this.cardList.size() == 2;
     }
 }

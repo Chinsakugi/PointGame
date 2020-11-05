@@ -7,10 +7,10 @@ import java.util.Iterator;
 import javax.swing.JTextArea;
 
 public class Player {
-    private double balance;
-    private Hand hand;
-    private boolean isDoubleOdds = false;
-    private int pokerChips;
+    private double balance;   //余额
+    private Hand hand;    //手牌
+    private boolean isDoubleOdds = false;   //是否选择双倍赔率
+    private int pokerChips;   //下注金额
     JTextArea textArea;
 
     public Player(int balance, Hand hand, int pokerChips, JTextArea textArea) {
@@ -56,7 +56,7 @@ public class Player {
         this.hand.cardList.add(card);
     }
 
-    public void printHand() {
+    public void printHand() {             //打印手牌
         this.textArea.append("您现在的手牌为：\n");
         this.textArea.append("[ ");
         Iterator var2 = this.hand.getCardList().iterator();

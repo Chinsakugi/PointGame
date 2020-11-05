@@ -145,6 +145,8 @@ public class userPanel {
                     slider.grabFocus();
                     checkedpass = false;
                 }
+                else
+                    checkedpass = true;
             }
         });
         pInput.add(bfp);

@@ -117,28 +117,33 @@ public class userPanel {
         bsc.setFont(f1);
         //发牌按钮事件
         bfp.addActionListener(new ActionListener() {
+            boolean checkedpass = true;
             public void actionPerformed(ActionEvent e) {
                 checkOver(slider, desk.getPlayer().getBalance());
-                bdb.setOpaque(true);
-                bdb.setContentAreaFilled(true);
-                btc.setOpaque(true);
-                btc.setContentAreaFilled(true);
-                bsc.setOpaque(true);
-                bsc.setContentAreaFilled(true);
-                int money = slider.getValue();
-                desk.getPlayer().setPokerChips(money);
-                desk.licensing(desk.getDealer());
-                desk.licensing(desk.getDealer());
-                textArea.append("庄家的牌为：[" + desk.getDealer().getHand().getCardList().get(0).getColor() + desk.getDealer().getHand().getCardList().get(0).getFaceValve() + ",暗牌" + "]\n");
-                textArea.paintImmediately(textArea.getBounds());
-                desk.licensing(desk.getPlayer());
-                desk.licensing(desk.getPlayer());
-                desk.getPlayer().printHand();
+                if(checkedpass)
+                {
+                    bdb.setOpaque(true);
+                    bdb.setContentAreaFilled(true);
+                    btc.setOpaque(true);
+                    btc.setContentAreaFilled(true);
+                    bsc.setOpaque(true);
+                    bsc.setContentAreaFilled(true);
+                    int money = slider.getValue();
+                    desk.getPlayer().setPokerChips(money);
+                    desk.licensing(desk.getDealer());
+                    desk.licensing(desk.getDealer());
+                    textArea.append("庄家的牌为：[" + desk.getDealer().getHand().getCardList().get(0).getColor() + desk.getDealer().getHand().getCardList().get(0).getFaceValve() + ",暗牌" + "]\n");
+                    textArea.paintImmediately(textArea.getBounds());
+                    desk.licensing(desk.getPlayer());
+                    desk.licensing(desk.getPlayer());
+                    desk.getPlayer().printHand();
+                }
             }
             private void checkOver(JSlider slider, double balance){
                 if(slider.getValue() > balance){
                     JOptionPane.showMessageDialog(pInput,"筹码不能超过余额");
                     slider.grabFocus();
+                    checkedpass = false;
                 }
             }
         });
@@ -187,7 +192,7 @@ public class userPanel {
                         overd = true;
                     }
                 }
-                textArea.append("庄家拿牌结束");
+                textArea.append("庄家拿牌结束。\n");
                 textArea.paintImmediately(textArea.getBounds());
                 int playerPoint = desk.getPlayer().getHand().getPoint(); //玩家手牌点数
                 int dealerPoint = desk.getDealer().getHand().getPoint(); //庄家手牌点数
